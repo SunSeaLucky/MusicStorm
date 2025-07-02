@@ -1,0 +1,52 @@
+# 客户端
+
+## 项目结构
+
+```
+electron        # 后端服务
+├─main          # 主进程
+├─preload       # 预加载脚本
+└─server        # 服务端请求
+```
+
+```
+public          # 全局静态资源
+├─fonts         # 字体文件
+├─icons         # 图标文件
+└─images        # 图片文件
+```
+
+```
+src             # 前端页面
+├─api           # 接口请求
+├─assets        # 静态资源
+│  ├─data       # 数据文件
+│  └─icons      # 图标文件
+├─components    # 组件
+│  ├─Card       # 卡片组件
+│  ├─Global     # 全局组件
+│  ├─Layout     # 布局组件
+│  ├─List       # 列表组件
+│  ├─Menu       # 菜单组件
+│  ├─Modal      # 窗口组件
+│  │  └─Login   # 登录组件
+│  ├─Player     # 播放器组件
+│  ├─Search     # 搜索组件
+│  ├─Setting    # 设置页
+│  └─UI         # UI组件（图片组件）
+├─router        # 路由
+├─stores        # 状态管理(Pinia)
+├─style         # 样式
+├─types         # 类型定义
+├─utils         # 工具函数
+└─views         # 页面
+    ├─Artist    # 专辑页
+    ├─Discover  # 发现页
+    ├─Home      # 主页
+    ├─Like      # 喜欢列表
+    ├─List      # 列表页（歌单等）
+    ├─Local     # 列表页（本地）
+    ├─Radio     # 广播页
+    ├─Search    # 搜索页
+    └─Status    # 状态页
+```
