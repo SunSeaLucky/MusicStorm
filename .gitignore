@@ -32,3 +32,5 @@ components.d.ts
 .env.production
 .vscode
 .DS_Store
+
+.mvn
