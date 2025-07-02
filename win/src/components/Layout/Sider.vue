@@ -70,7 +70,7 @@ const statusStore = useStatusStore();
       }
     }
     .n-text {
-      width: 90px;
+      width: 150px;
       font-size: 22px;
       // font-weight: bold;
       font-family: "logo";

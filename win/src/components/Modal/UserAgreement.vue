@@ -3,10 +3,6 @@
   <div class="user-agreement">
     <n-h1 class="title">用户协议</n-h1>
     <n-scrollbar class="scrollbar">
-      <n-flex class="date" justify="center">
-        <n-tag round>生效日期：2024 年 7 月 16 日</n-tag>
-        <n-tag type="warning" round>更新日期：2024 年 9 月 28 日</n-tag>
-      </n-flex>
       <n-p>
         欢迎使用 MusicStorm（以下简称“本软件”）。本软件是一个本地音乐播放软件，可能会调用第三方 API
         来增强其功能。请在使用本软件前仔细阅读本用户协议。本协议是您（以下简称“用户”）与 MusicStorm
