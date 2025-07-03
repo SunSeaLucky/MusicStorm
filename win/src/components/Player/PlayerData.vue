@@ -61,14 +61,14 @@
       </span>
     </div>
     <!-- 电台 -->
-    <div
+    <!-- <div
       v-if="musicStore.playSong.type === 'radio'"
       class="dj"
       @click="jumpPage({ name: 'dj', query: { id: musicStore.playSong.dj?.id } })"
     >
       <SvgIcon :depth="3" name="Podcast" size="20" />
       <span class="name-text text-hidden">{{ musicStore.playSong.dj?.name || "播客电台" }}</span>
-    </div>
+    </div> -->
   </div>
 </template>
 

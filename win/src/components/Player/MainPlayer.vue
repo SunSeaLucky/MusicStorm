@@ -88,7 +88,7 @@
             />
             <!-- 歌手 -->
             <div v-else class="artists">
-              <n-text v-if="musicStore.playSong.type === 'radio'" class="ar-item">播客电台</n-text>
+              <n-text v-if="musicStore.playSong.type === 'radio'" class="ar-item">播客</n-text>
               <template v-else-if="Array.isArray(musicStore.playSong.artists)">
                 <n-text
                   v-for="(item, index) in musicStore.playSong.artists"

@@ -56,9 +56,9 @@
                     {{ ar.name }}
                   </n-text>
                 </div>
-                <div v-else-if="songData.type === 'radio'" class="artists">
+                <!-- <div v-else-if="songData.type === 'radio'" class="artists">
                   <n-text class="ar" depth="3"> 播客电台 </n-text>
-                </div>
+                </div> -->
                 <div v-else class="artists">
                   <n-text class="ar" depth="3"> {{ songData?.artists || "未知艺术家" }} </n-text>
                 </div>

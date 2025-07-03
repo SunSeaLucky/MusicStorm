@@ -117,6 +117,16 @@ const routes: Array<RouteRecordRaw> = [
     },
     component: () => import("@/views/Video.vue"),
   },
+  // 社区
+  {
+    path: "/community-container",
+    name: "community-container",
+    beforeEnter: (to, _, next) => {
+      if (!to.query.id) next({ path: "/403" });
+      else next();
+    },
+    component: () => import("@/views/Community/container.vue"),
+  },
   // 专辑
   {
     path: "/album",

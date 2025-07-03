@@ -70,9 +70,9 @@ const menuOptions = computed<MenuOption[] | MenuGroupOption[]>(() => {
           }),
         },
         {
-          key: "community-comment",
-          link: "community-comment",
-          label: "社区",
+          key: "community-container",
+          link: "community-container",
+          label: "音乐社区",
           icon: renderIcon("Record", {
             style: {
               transform: "translateY(-1px)",
