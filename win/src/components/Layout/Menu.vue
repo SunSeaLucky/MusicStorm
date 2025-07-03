@@ -70,25 +70,35 @@ const menuOptions = computed<MenuOption[] | MenuGroupOption[]>(() => {
           }),
         },
         {
-          key: "personal-fm",
-          label: "私人漫游",
-          show: isLogin() !== 0,
-          icon: renderIcon("Radio", {
-            style: {
-              transform: "translateY(-1px)",
-            },
-          }),
-        },
-        {
-          key: "radio-hot",
-          link: "radio-hot",
-          label: "播客电台",
+          key: "community-comment",
+          link: "community-comment",
+          label: "社区",
           icon: renderIcon("Record", {
             style: {
               transform: "translateY(-1px)",
             },
           }),
         },
+        // {
+        //   key: "personal-fm",
+        //   label: "私人漫游",
+        //   show: isLogin() !== 0,
+        //   icon: renderIcon("Radio", {
+        //     style: {
+        //       transform: "translateY(-1px)",
+        //     },
+        //   }),
+        // },
+        // {
+        //   key: "radio-hot",
+        //   link: "radio-hot",
+        //   label: "播客电台",
+        //   icon: renderIcon("Record", {
+        //     style: {
+        //       transform: "translateY(-1px)",
+        //     },
+        //   }),
+        // },
         {
           key: "divider",
           type: "divider",
@@ -118,13 +128,13 @@ const menuOptions = computed<MenuOption[] | MenuGroupOption[]>(() => {
           label: "我的收藏",
           icon: renderIcon("Star"),
         },
-        {
-          key: "cloud",
-          link: "cloud",
-          label: "我的云盘",
-          show: isLogin() === 1,
-          icon: renderIcon("Cloud"),
-        },
+        // {
+        //   key: "cloud",
+        //   link: "cloud",
+        //   label: "我的云盘",
+        //   show: isLogin() === 1,
+        //   icon: renderIcon("Cloud"),
+        // },
         {
           key: "local",
           link: "local",

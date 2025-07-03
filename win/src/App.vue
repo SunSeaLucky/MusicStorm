@@ -111,6 +111,10 @@ onMounted(async () => {
 
 <style lang="scss" scoped>
 #main {
+  background-image: url('@/assets/images/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   flex: 1;
   height: 100%;
   transition:
