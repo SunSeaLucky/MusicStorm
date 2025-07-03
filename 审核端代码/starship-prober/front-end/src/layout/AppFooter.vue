@@ -14,7 +14,7 @@ const logoUrl = computed(() => {
 
         <img :src="logoUrl" alt="Logo" height="20" class="mr-2" />
         by
-        <span class="font-medium ml-2">中央系统最高权限管理员 SunSeaLucky</span>
+        <span class="font-medium ml-2">欢迎登录！中央系统最高权限管理员 SunSeaLucky</span>
         <span class="font-medium ml-2">&copy; 银河管理局备案号：<span class="text-blue-500">火AAAAAAAA</span></span>
     </div>
 </template>

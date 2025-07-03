@@ -76,8 +76,8 @@ async function login() {
                 <div class="w-full surface-card py-8 px-5 sm:px-8" style="border-radius: 53px">
                     <div class="text-center mb-5">
                         <!-- <img src="/demo/images/login/avatar.png" alt="Image" height="50" class="mb-3" /> -->
-                        <div class="text-900 text-3xl font-medium mb-3">欢迎使用战舰管理系统</div>
-                        <span class="text-600 font-medium">指挥官，您尚未登录，登录以继续...</span>
+                        <div class="text-900 text-3xl font-medium mb-3">MusicStorm 后台审核系统</div>
+                        <span class="text-600 font-medium">您尚未登录，登录以继续...</span>
                     </div>
 
                     <div>
@@ -91,11 +91,11 @@ async function login() {
                         <div class="flex align-items-center justify-content-between mb-5 gap-5">
                             <div class="flex align-items-center">
                                 <Checkbox v-model="checked" id="rememberme1" binary class="mr-2"></Checkbox>
-                                <label for="rememberme1">保持探针的注入状态</label>
+                                <label for="rememberme1">保持登陆状态</label>
                             </div>
                             <router-link class="font-medium no-underline ml-2 text-right cursor-pointer" style="color: var(--primary-color)" to="/auth/register">尚未拥有探针？</router-link>
                         </div>
-                        <Button label="注入战舰管理探针" class="w-full p-3 text-xl" @click="login"></Button>
+                        <Button label="登录 MusicStorm 后台管理系统" class="w-full p-3 text-xl" @click="login"></Button>
                     </div>
                 </div>
             </div>

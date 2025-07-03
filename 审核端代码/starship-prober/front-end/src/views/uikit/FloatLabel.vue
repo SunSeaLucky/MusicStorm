@@ -65,21 +65,21 @@ const getSeverity = (status) => {
 const getStatus = (status) => {
     switch (status) {
         case 0:
-            return '正在维修';
+            return '0';
         case   1:
-            return '即将报废';
+            return '1';
 
         case 2:
-            return '状况极佳';
+            return '2';
 
         case 3:
-            return '舰体尚佳';
+            return '3';
 
         case 4:
-            return '出现损伤';
+            return '4';
 
         case 5:
-            return '强制冻结';
+            return '5';
     }
 };
 

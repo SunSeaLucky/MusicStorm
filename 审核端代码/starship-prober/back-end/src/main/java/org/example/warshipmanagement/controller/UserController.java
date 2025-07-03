@@ -87,10 +87,10 @@ public class UserController {
     }
 
     @GetMapping("/getLVCWarshipBattleRatio")
-    public Result<Double> getLVCWarshipBattleRatio(@RequestParam String username) {
+    public Result<Integer> getLVCWarshipBattleRatio(@RequestParam String username) {
         Random r = new Random();
-        Double res = r.nextDouble(5) + 1;
-        return Result.success(Double.parseDouble(String.format("%.2f", res)));
+        Integer res = r.nextInt(10000) + 1;
+        return Result.success(res);
     }
 
     @GetMapping("/getCrewNumber")
