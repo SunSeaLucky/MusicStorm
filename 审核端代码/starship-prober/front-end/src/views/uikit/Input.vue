@@ -130,6 +130,12 @@ const initFilters1 = () => {
     };
 };
 
+const updateVerified = (warshipName, verified) => {
+    warshipAPI.updateVerified(warshipName, verified).then(res => {
+        console.log(res);
+    });
+};
+
 const clearFilter1 = () => {
     initFilters1();
 };
@@ -293,7 +299,7 @@ const calculateCustomerTotal = (name) => {
                     </Column>
                     <Column field="verified" header="是否通过审核" dataType="boolean" bodyClass="text-center" style="min-width: 8rem">
                         <template #body="{ data }">
-                            <i class="pi" @click="data.verified = !data.verified" :class="{ 'text-green-500 pi-check-circle': data.verified, 'text-pink-500 pi-times-circle': !data.verified }"></i>
+                            <i class="pi" @click="data.verified = !data.verified; updateVerified(data.name, data.verified)" :class="{ 'text-green-500 pi-check-circle': data.verified, 'text-pink-500 pi-times-circle': !data.verified }"></i>
                         </template>
                         <template #filter="{ filterModel }">
                             <TriStateCheckbox v-model="filterModel.value" />
