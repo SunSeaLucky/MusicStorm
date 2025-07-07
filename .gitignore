@@ -14,9 +14,9 @@ dist-ssr
 coverage
 *.local
 out
-.env
-auto-imports.d.ts
-components.d.ts
+# .env
+# auto-imports.d.ts
+# components.d.ts
 
 # Editor directories and files
 .vscode/*
@@ -28,7 +28,7 @@ components.d.ts
 *.njsproj
 *.sln
 *.sw?
-.env.development
-.env.production
+# .env.development
+# .env.production
 
 demo.md
