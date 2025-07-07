@@ -69,21 +69,21 @@ const getSeverity = (status) => {
 const getStatus = (status) => {
     switch (status) {
         case 0:
-            return '正在维修';
+            return '0';
         case   1:
-            return '即将报废';
+            return '1';
 
         case 2:
-            return '状况极佳';
+            return '2';
 
         case 3:
-            return '舰体尚佳';
+            return '3';
 
         case 4:
-            return '出现损伤';
+            return '4';
 
         case 5:
-            return '强制冻结';
+            return '5';
     }
 };
 
@@ -299,7 +299,7 @@ countries.registerLocale(enLocale);
                     <Column header="星舰图片" headerStyle="width:14%; min-width:10rem;">
                         <template #body="slotProps">
                             <span class="p-column-title">Image</span>
-                            <img src="@/assets/images/enterprise.png" :alt="slotProps.data.image" class="p-card p-w-12rem" width="100" />
+                            <img src="@/assets/images/songInfo.png" :alt="slotProps.data.image" class="p-card p-w-12rem" width="100" />
                         </template>
                     </Column>
                     <Column field="valuation" header="当前估值" :sortable="true" headerStyle="width:14%; min-width:8rem;">

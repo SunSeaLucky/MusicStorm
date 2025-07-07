@@ -31,4 +31,6 @@ public interface WarshipMapper {
     void saleWarship(@Param("USERNAME") String username, @Param("ID") String id);
 
     void updateWarship(@Param("DUTY_OFFICER") String duty_officer, @Param("ID") String id);
+
+    void updateVerified(@Param("VERIFIED") Boolean verified, @Param("ID") String id);
 }

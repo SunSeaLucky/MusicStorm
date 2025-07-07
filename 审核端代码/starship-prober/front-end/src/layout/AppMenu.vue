@@ -10,12 +10,11 @@ const model = ref([
         items: [{ label: '主面板', icon: 'pi pi-fw pi-home', to: '/' }]
     },
     {
-        label: '星舰管理',
+        label: '帖子管理',
         items: [
             // { label: '概览', icon: 'pi pi-fw pi-align-justify', to: '/uikit/formlayout' },
-            { label: '星舰集群', icon: 'pi pi-fw pi-sitemap', to: '/uikit/input' },
-            { label: '我的星舰', icon: 'pi pi-fw pi-slack', to: '/uikit/invalidstate' },
-            { label: '舰载武器', icon: 'pi pi-fw pi-prime', to: '/uikit/floatlabel' }
+            { label: '帖子审核', icon: 'pi pi-fw pi-sitemap', to: '/uikit/input' },
+            { label: '我的帖子', icon: 'pi pi-fw pi-slack', to: '/uikit/invalidstate' },
             // { label: 'Button', icon: 'pi pi-fw pi-mobile', to: '/uikit/button', class: 'rotated-icon' },
             // { label: 'Table', icon: 'pi pi-fw pi-table', to: '/uikit/table' },
             // { label: 'List', icon: 'pi pi-fw pi-list', to: '/uikit/list' },
@@ -30,16 +29,16 @@ const model = ref([
         ]
     },
     {
-        label: '指挥官信息管理',
+        label: '信息管理',
         items: [
             { label: '个人信息', icon: 'pi pi-fw pi-eye', to: '/blocks', badge: 'NEW' },
             // { label: '指挥官管理', icon: 'pi pi-user', to: '/uikit/overlay' }
         ]
     },
     {
-        label: '星际联邦法案',
+        label: '使用说明',
         items: [
-            { label: '星际联邦宪章与记忆', icon: 'pi pi-fw pi-file', to: '/utilities/icons' }
+            { label: '关于 MusicStorm 的使用说明', icon: 'pi pi-fw pi-file', to: '/utilities/icons' }
             // { label: '星际联邦各星系法案', icon: 'pi pi-fw pi-file-edit', to: '/documentation' },
         ]
     }

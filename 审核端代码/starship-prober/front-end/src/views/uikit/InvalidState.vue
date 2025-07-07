@@ -69,21 +69,21 @@ const getSeverity = (status) => {
 const getStatus = (status) => {
     switch (status) {
         case 0:
-            return '正在维修';
+            return '0';
         case   1:
-            return '即将报废';
+            return '1';
 
         case 2:
-            return '状况极佳';
+            return '2';
 
         case 3:
-            return '舰体尚佳';
+            return '3';
 
         case 4:
-            return '出现损伤';
+            return '4';
 
         case 5:
-            return '强制冻结';
+            return '5';
     }
 };
 
@@ -249,15 +249,15 @@ countries.registerLocale(enLocale);
             <div class="card">
                 <h5>当前余额：{{ userStore.balance }} $</h5>
                 <Toolbar class="mb-4">
-                    <template v-slot:start>
+                    <!-- <template v-slot:start>
                         <div class="my-2">
                             <Button label="购买星舰" icon="pi pi-plus" class="mr-2" severity="success" @click="openNew" />
                             <Button label="卖出星舰" icon="pi pi-trash" severity="danger" @click="confirmDeleteSelected" :disabled="!selectedProducts || !selectedProducts.length" />
                         </div>
-                    </template>
+                    </template> -->
                     <template v-slot:end>
 <!--                        <FileUpload mode="basic" accept="image/*" :maxFileSize="1000000" label="导入星舰数据" chooseLabel="导入武器数据" class="mr-2 inline-block" />-->
-                        <Button label="导出星舰数据" icon="pi pi-upload" severity="help" @click="exportCSV($event)" />
+                        <Button label="导出帖子数据" icon="pi pi-upload" severity="help" @click="exportCSV($event)" />
                     </template>
                 </Toolbar>
 
@@ -271,11 +271,11 @@ countries.registerLocale(enLocale);
                     :filters="filters"
                     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
                     :rowsPerPageOptions="[5, 10, 25]"
-                    currentPageReportTemplate="正在展示第 {first} 到 {last} 艘星舰，共 {totalRecords} 艘星舰"
+                    currentPageReportTemplate="正在展示第 {first} 到 {last} 个帖子，共 {totalRecords} 个帖子"
                 >
                     <template #header>
                         <div class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
-                            <h5 class="m-0">管理我的星舰</h5>
+                            <h5 class="m-0">管理我的帖子</h5>
                             <IconField iconPosition="left" class="block mt-2 md:mt-0">
                                 <InputIcon class="pi pi-search" />
                                 <InputText class="w-full sm:w-auto" v-model="filters['global'].value" placeholder="Search..." />
@@ -284,25 +284,25 @@ countries.registerLocale(enLocale);
                     </template>
 
                     <Column selectionMode="multiple" headerStyle="width: 3rem"></Column>
-                    <Column field="code" header="当前代理" :sortable="true" headerStyle="width:14%; min-width:10rem;">
+                    <Column field="code" header="作者" :sortable="true" headerStyle="width:14%; min-width:10rem;">
                         <template #body="slotProps">
                             <span class="p-column-title">Code</span>
                             {{ slotProps.data.duty_officer }}
                         </template>
                     </Column>
-                    <Column field="name" header="星舰" :sortable="true" headerStyle="width:14%; min-width:10rem;">
+                    <Column field="name" header="帖子标题" :sortable="true" headerStyle="width:14%; min-width:10rem;">
                         <template #body="slotProps">
                             <span class="p-column-title">Name</span>
                             {{ slotProps.data.name }}
                         </template>
                     </Column>
-                    <Column header="星舰图片" headerStyle="width:14%; min-width:10rem;">
+                    <Column header="帖图" headerStyle="width:14%; min-width:10rem;">
                         <template #body="slotProps">
                             <span class="p-column-title">Image</span>
                             <img src="@/assets/images/enterprise.png" :alt="slotProps.data.image" class="p-card p-w-12rem" width="100" />
                         </template>
                     </Column>
-                    <Column field="valuation" header="当前估值" :sortable="true" headerStyle="width:14%; min-width:8rem;">
+                    <Column field="valuation" header="预计收益" :sortable="true" headerStyle="width:14%; min-width:8rem;">
                         <template #body="slotProps">
                             <span class="p-column-title">Price</span>
                             {{ formatCurrency(slotProps.data.valuation) }}
@@ -314,7 +314,7 @@ countries.registerLocale(enLocale);
                             {{ slotProps.data.activity }}
                         </template>
                     </Column>
-                    <Column field="product_country" header="生产国家" :sortable="true" headerStyle="width:14%; min-width:10rem;">
+                    <Column field="product_country" header="音乐国家" :sortable="true" headerStyle="width:14%; min-width:10rem;">
                         <template #body="{ data }">
                             <div class="flex align-items-center gap-2">
                                 <img alt="flag" src="/demo/images/flag/flag_placeholder.png" :class="`flag flag-${getCountryCodeByName(data.product_country).toLowerCase()}`" style="width: 24px" />
@@ -322,7 +322,7 @@ countries.registerLocale(enLocale);
                             </div>
                         </template>
                     </Column>
-                    <Column field="status" header="星舰状态" :sortable="true" headerStyle="width:14%; min-width:10rem; ">
+                    <Column field="status" header="AI 给分" :sortable="true" headerStyle="width:14%; min-width:10rem; ">
                         <template #body="slotProps">
                             <span class="p-column-title">Status</span>
                             <Tag :severity="getSeverity(slotProps.data.status)">{{ getStatus(slotProps.data.status) }}</Tag>

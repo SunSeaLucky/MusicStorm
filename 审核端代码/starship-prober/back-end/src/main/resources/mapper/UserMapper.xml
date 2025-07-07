@@ -3,35 +3,35 @@
 
 <mapper namespace="org.example.warshipmanagement.mapper.UserMapper">
     <insert id="addUser" parameterType="map">
-        INSERT INTO USER(USERNAME, PASSWORD, RANDOM, REGISTER_TIME)
+        INSERT INTO user(USERNAME, PASSWORD, RANDOM, REGISTER_TIME)
         VALUES (#{USERNAME}, #{PASSWORD}, #{RANDOM}, #{REGISTER_TIME})
     </insert>
 
     <delete id="deleteUser" parameterType="map">
         DELETE
-        FROM USER
+        FROM user
         WHERE USERNAME = #{USERNAME}
     </delete>
 
     <update id="updateUser" parameterType="map">
-        UPDATE USER
+        UPDATE user
         SET BALANCE=#{BALANCE}
         WHERE USERNAME = #{USERNAME}
     </update>
 
     <select id="findUserByName" parameterType="map" resultType="User">
         SELECT *
-        FROM USER
+        FROM user
         WHERE USERNAME = #{USERNAME}
     </select>
 
     <select id="getWarshipNumber" parameterType="map" resultType="Integer">
         SELECT COUNT(*)
-        FROM USER_HAS_STARSHIP
-        WHERE USER_USERNAME = #{USERNAME}
+        FROM user_has_starship
+        WHERE user_username = #{USERNAME}
     </select>
     <update id="commitPersonalInformation" parameterType="map">
-        UPDATE USER
+        UPDATE user
         SET SEX            = #{SEX},
             BORN_TIME=#{BORN_TIME},
             SERVING_COUNTRY=#{SERVING_COUNTRY},

@@ -47,4 +47,10 @@ public class WarshipController {
         return Result.success("代理修改成功！");
     }
 
+    @GetMapping("/updateVerified")
+    Result<String> updateWarshipAgent(@RequestParam String warshipName, @RequestParam Boolean verified) {
+        warshipService.updateVerified(warshipName, verified);
+        return Result.success("更新成功！");
+    }
+
 }

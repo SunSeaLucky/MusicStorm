@@ -98,7 +98,7 @@ function commitPI() {
 </script>
 <template>
     <div class="card p-fluid">
-        <h5><strong>指挥官基本信息</strong></h5>
+        <h5><strong>个人基本信息</strong></h5>
         <div class="grid formgrid">
             <div class="col-12 mb-2 lg:col-4 lg:mb-0">
                 <h6 class="p-1">昵称</h6>
@@ -110,11 +110,11 @@ function commitPI() {
             </div>
         </div>
 
-        <h6 class="p-1">出生星历</h6>
+        <h6 class="p-1">出生时间</h6>
         <Calendar :showIcon="true" :showButtonBar="true" v-model="userStore.born_time" :disabled="disableEdit"></Calendar>
-        <h6 class="p-1">出生国籍</h6>
+        <h6 class="p-1">籍贯</h6>
         <Dropdown v-model="userStore.born_country" :options="dropdownValues" optionLabel="name" placeholder="Select" :disabled="disableEdit" />
-        <h6 class="p-1">服役国家</h6>
+        <h6 class="p-1">喜欢哪国的歌曲</h6>
         <MultiSelect v-model="userStore.serving_country" :options="multiselectValues" optionLabel="name" placeholder="Select Countries" :filter="true" :disabled="disableEdit">
             <template #value="slotProps">
                 <div class="inline-flex align-items-center py-1 px-2 bg-primary text-primary border-round mr-2" v-for="option of slotProps.value" :key="option.code">

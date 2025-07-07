@@ -109,4 +109,12 @@ export class WarshipAPI {
         });
     }
 
+    updateVerified(warshipName, verified) {
+        return request(hostUrl + 'warship/updateVerified?warshipName=' + warshipName + '&verified=' + verified, {
+            method: 'GET'
+        }).then(res => {
+            return res.json();
+        });
+    }
+
 }

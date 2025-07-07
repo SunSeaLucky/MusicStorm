@@ -4,51 +4,56 @@
 <mapper namespace="org.example.warshipmanagement.mapper.WarshipMapper">
     <delete id="deleteWarship" parameterType="map">
         DELETE
-        FROM STARSHIP
+        FROM starship
         WHERE ID = #{ID}
     </delete>
     <select id="findWarshipById" parameterType="map">
         SELECT *
-        FROM STARSHIP
+        FROM starship
         WHERE ID = #{ID}
     </select>
     <select id="findAllMyWarships" parameterType="map">
         SELECT *
-        FROM USER_HAS_STARSHIP,
-             STARSHIP
-        WHERE USER_HAS_STARSHIP.USER_USERNAME = #{USERNAME}
-          AND USER_HAS_STARSHIP.STARSHIP_ID = STARSHIP.ID
+        FROM user_has_starship,
+             starship
+        WHERE user_has_starship.USER_USERNAME = #{USERNAME}
+          AND user_has_starship.STARSHIP_ID = starship.ID
     </select>
     <select id="findAllWarships">
         SELECT *
-        FROM STARSHIP
+        FROM starship
     </select>
     <select id="findWarshipByName" parameterType="map" resultType="Warship">
         SELECT *
-        FROM STARSHIP
+        FROM starship
         WHERE NAME = #{NAME}
     </select>
 
     <insert id="buyWarship" parameterType="map">
-        INSERT INTO USER_HAS_STARSHIP(USER_USERNAME, STARSHIP_ID)
+        INSERT INTO user_has_starship(USER_USERNAME, STARSHIP_ID)
         VALUES (#{USERNAME}, #{ID})
     </insert>
     <delete id="saleWarship" parameterType="map">
         DELETE
-        FROM USER_HAS_STARSHIP
+        FROM user_has_starship
         WHERE USER_USERNAME = #{USERNAME}
           AND STARSHIP_ID = #{ID}
     </delete>
     <update id="updateWarship" parameterType="map">
-        UPDATE STARSHIP
+        UPDATE starship
         SET DUTY_OFFICER = #{DUTY_OFFICER}
         WHERE ID = #{ID}
     </update>
+    <update id="updateVerified" parameterType="map">
+        UPDATE starship
+        SET verified = #{VERIFIED}
+        WHERE id = #{ID}
+    </update>
     <select id="findWarshipByWeapon" parameterType="map">
         SELECT *
-        FROM STARSHIP
+        FROM starship
         WHERE ID IN (SELECT STARSHIP_ID
-                     FROM STARSHIP_HAS_WEAPON
+                     FROM starship_has_weapon
                      WHERE WEAPON_CODE = #{CODE})
     </select>
 </mapper>

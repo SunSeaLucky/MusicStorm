@@ -20,6 +20,8 @@ public interface WarshipService {
 
     void updateWarship(String id, String agentName);
 
+    void updateVerified(String name, Boolean verified);
+
     Warship findWarshipByWeapon(String code);
 
 }

@@ -30,3 +30,7 @@ components.d.ts
 *.sw?
 .env.development
 .env.production
+.vscode
+.DS_Store
+
+.mvn
