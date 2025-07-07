@@ -323,7 +323,7 @@ watch(
         border-left: 4px solid transparent;
         transition:
           border 0.3s var(--n-bezier),
-          background-color 0.3s var(--n-bezier);
+          background-color 0.3s rgba(var(--n-bezier), 0.6);
       }
       &.n-menu-item-content--selected {
         .n-text {

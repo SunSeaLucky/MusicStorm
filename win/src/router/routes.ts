@@ -121,10 +121,10 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/community-container",
     name: "community-container",
-    beforeEnter: (to, _, next) => {
-      if (!to.query.id) next({ path: "/403" });
-      else next();
-    },
+    // beforeEnter: (to, _, next) => {
+    //   if (!to.query.id) next({ path: "/403" });
+    //   else next();
+    // },
     component: () => import("@/views/Community/container.vue"),
   },
   // 专辑

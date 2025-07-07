@@ -298,7 +298,7 @@ onBeforeUnmount(() => {
     padding: 8px 12px;
     // margin-right: 4px;
     border: 1px solid transparent;
-    background-color: var(--background-hex);
+    background-color: rgba(var(--background-hex), 0.6);
     .n-text {
       opacity: 0.6;
     }

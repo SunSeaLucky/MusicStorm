@@ -30,3 +30,5 @@ components.d.ts
 *.sw?
 .env.development
 .env.production
+
+demo.md

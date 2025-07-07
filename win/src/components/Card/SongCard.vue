@@ -203,7 +203,7 @@ const localCover = async (show: boolean) => {
     flex: 1;
     border-radius: 12px;
     border: 2px solid rgba(var(--primary), 0.12);
-    background-color: var(--surface-container-hex);
+    background-color: (var(--surface-container-hex), 0.6);
     // transition:
     //   transform 0.1s,
     //   background-color 0.3s var(--n-bezier),
