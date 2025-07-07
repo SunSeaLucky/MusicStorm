@@ -44,6 +44,11 @@
         SET DUTY_OFFICER = #{DUTY_OFFICER}
         WHERE ID = #{ID}
     </update>
+    <update id="updateVerified" parameterType="map">
+        UPDATE starship
+        SET verified = #{VERIFIED}
+        WHERE id = #{ID}
+    </update>
     <select id="findWarshipByWeapon" parameterType="map">
         SELECT *
         FROM starship

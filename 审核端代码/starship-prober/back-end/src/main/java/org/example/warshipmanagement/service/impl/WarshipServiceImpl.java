@@ -76,5 +76,10 @@ public class WarshipServiceImpl implements WarshipService {
         return warshipMapper.findWarshipByWeapon(code);
     }
 
+    @Override
+    public void updateVerified(String name, Boolean verified) {
+        warshipMapper.updateVerified(verified, Integer.toString(findWarshipByName(name).getId()));
+    }
+
 
 }
