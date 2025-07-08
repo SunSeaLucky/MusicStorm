@@ -1,6 +1,9 @@
 *
+!codes
+!*.txt
 !otherpdf
 !images
+!*.drawio
 !*.pdf
 !*.tex
 !*.png

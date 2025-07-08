@@ -1,0 +1,4 @@
+electron        # 后端服务
+├─main          # 主进程
+├─preload       # 预加载脚本
+└─server        # 服务端请求

@@ -1,0 +1,4 @@
+public          # 全局静态资源
+├─fonts         # 字体文件
+├─icons         # 图标文件
+└─images        # 图片文件
