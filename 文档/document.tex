@@ -23,15 +23,16 @@
 \usepackage{pdfpages}
 \usepackage{xcolor}
 
-% 全文双倍行距
-\doublespacing
+% 全文双1.5倍行距
+\onehalfspacing
 
 \begin{document}
 
 % 封面
 \includepdf[pages=-]{otherpdf/cover.pdf}
+\includepdf{otherpdf/修改记录.pdf}
 \pagenumbering{Roman}
-\setcounter{page}{2}
+% \setcounter{page}{2}
 \tableofcontents
 \clearpage
 \pagenumbering{arabic}
@@ -234,7 +235,7 @@ MusicStorm 社区通过整合用户行为数据、音乐作品数据、社区互
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/1-2.png}
-    \caption{一层数据流图}
+    \caption{功能级数据流图}
 \end{figure}
 
 \subsubsection{工作负荷}
@@ -540,6 +541,8 @@ src             # 前端页面
 \label{tab:my-table}\\
 \toprule
 \textbf{服务类别} & \textbf{服务内容} & \textbf{开始日期} & \textbf{服务期限} \\* \midrule
+\endfirsthead
+{{\bfseries 表 \thetable\ 续前页}} \\
 \endhead
 %
 \bottomrule
@@ -795,7 +798,7 @@ AI模型训练资产     & 微调参数集，数据清洗脚本  & 答辩当天 
 社区互动功能旨在提升专业性与参与感。其中一项重要功能是动态乐谱播放，在用户收听作品时同步显示可滚动的乐谱，并可选择性地开关不同乐器声部（例如钢琴、鼓组等）。作为P1优先级的功能，它提升了产品的专业度，适用于音乐课堂上分析AI作品的结构，帮助学生理解编曲逻辑。另一项P1优先级的社区功能是主题挑战赛，社团等组织可以发布特定创作主题（如“毕业季”），用户可以提交其AI创作的作品参与，并进行投票评选出前十名。这一功能在校园艺术节预热等活动中能有效激发学生群体的创作热情。
 
 针对校园特定场景，还规划了一套工具箱功能。情绪音乐墙被标记为P2优先级，作为场景增值服务，它部署在图书馆等公共场所的终端设备上，用户输入心情关键词（例如“专注”或“放松”）即可生成适配的环境背景音进行循环播放，服务于自习室氛围调节、缓解考试焦虑等实际需求。同样属于P2优先级的毕设支持中心功能，则专为艺术类专业学生打造，提供免版权的配乐库资源，并支持通过API调用来生成专属的背景音乐（BGM），目的是帮助数字媒体等专业的学生在毕业设计中，用原创或免费配乐替代需要采购的商业音乐。
-
+\newpage
 \subsubsection{软件需求的用例模型}
 
 % Please add the following required packages to your document preamble:
@@ -1056,6 +1059,9 @@ MindSpore：昇思 MindSpore，是一个全场景 AI 计算框架，具备高效
 \label{tab:my-table}\\
 \toprule
 \textbf{包名}           & \textbf{说明}                                                            & \textbf{负责人} \\* \midrule
+\endfirsthead
+\multicolumn{3}{c}
+{{\bfseries 表 \thetable\ 续前页}} \\
 \endhead
 %
 \bottomrule
@@ -1174,27 +1180,57 @@ Artist/Album/Genre：音乐相关实体模型
 
 \subsubsection{类设计}
 
+\begin{table}[H]
+\centering
+\caption{函数 playTrack}
+\label{tab:my-table}
+\begin{tabular}{|c|ll|}
+\hline
+\textbf{函数名}  & \multicolumn{2}{l|}{playTrack}                                          \\ \hline
+\textbf{设计人}  & \multicolumn{2}{l|}{夏清伟}                                                \\ \hline
+\textbf{参数}   & \multicolumn{1}{c|}{\textbf{参数名称}} & \multicolumn{1}{c|}{\textbf{数据类型}} \\ \hline
+              & \multicolumn{1}{l|}{post}          & Post                               \\ \hline
+\textbf{返回值}  & \multicolumn{1}{c|}{\textbf{名称}}   & \multicolumn{1}{c|}{\textbf{数据类型}} \\ \hline
+              & \multicolumn{1}{l|}{}              & void                               \\ \hline
+\textbf{功能描述} & \multicolumn{2}{l|}{播放帖子关联的音乐}                                          \\ \hline
+\textbf{算法描述} & \multicolumn{2}{l|}{见下图}                                                \\ \hline
+\textbf{输入}   & \multicolumn{2}{l|}{Post 对象}                                            \\ \hline
+\textbf{输出}   & \multicolumn{2}{l|}{启动窗口}                                               \\ \hline
+\textbf{存储分配} & \multicolumn{2}{l|}{更新全局播放器状态}                                          \\ \hline
+\textbf{测试要点} & \multicolumn{2}{l|}{\begin{tabular}[c]{@{}l@{}}1. 点击音乐项触发播放\\ 2. 播放器状态同步更新\end{tabular}} \\ \hline
+\end{tabular}
+\end{table}
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{images/class-table-1.png}
+    \includegraphics[width=0.5\textwidth]{images/class-activity-1.png}
     \caption{函数 playTrack}
 \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{images/class-activity-1.png}
-    \caption{函数 playTrack}
-\end{figure}
+\begin{table}[H]
+\centering
+\caption{函数 fetchPosts}
+\label{tab:my-table}
+\begin{tabular}{|c|ll|}
+\hline
+\textbf{函数名}  & \multicolumn{2}{l|}{fetchPosts}                                         \\ \hline
+\textbf{设计人}  & \multicolumn{2}{l|}{夏清伟}                                                \\ \hline
+\textbf{参数}   & \multicolumn{1}{c|}{\textbf{参数名称}} & \multicolumn{1}{c|}{\textbf{数据类型}} \\ \hline
+              & \multicolumn{1}{l|}{无}             &                                    \\ \hline
+\textbf{返回值}  & \multicolumn{1}{c|}{\textbf{名称}}   & \multicolumn{1}{c|}{\textbf{数据类型}} \\ \hline
+              & \multicolumn{1}{l|}{}              & void                               \\ \hline
+\textbf{功能描述} & \multicolumn{2}{l|}{从服务器获取所有帖子数据并更新响应式列表}                               \\ \hline
+\textbf{算法描述} & \multicolumn{2}{l|}{见下图}                                                \\ \hline
+\textbf{输入}   & \multicolumn{2}{l|}{无}                                                  \\ \hline
+\textbf{输出}   & \multicolumn{2}{l|}{更新 posts 响应式数组}                                     \\ \hline
+\textbf{存储分配} & \multicolumn{2}{l|}{临时存储响应数据，组件卸载时自动释放}                                 \\ \hline
+\textbf{测试要点} & \multicolumn{2}{l|}{\begin{tabular}[c]{@{}l@{}}1. 请求成功时 posts 数据正确\\ 2. 网络错误时控制台输出错误信息\end{tabular}} \\ \hline
+\end{tabular}
+\end{table}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{images/class-table-2.png}
-    \caption{函数 fetchPosts}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{images/class-activity-1.png}
+    \includegraphics[width=0.5\textwidth]{images/class-activity-1.png}
     \caption{函数 fetchPosts}
 \end{figure}
 
@@ -1210,7 +1246,7 @@ Artist/Album/Genre：音乐相关实体模型
 \end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.25\textwidth]{images/5-10.png}
+    \includegraphics[width=0.4\textwidth]{images/5-10.png}
     \caption{Router-活动图}
 \end{figure}
 
@@ -1234,6 +1270,7 @@ Artist/Album/Genre：音乐相关实体模型
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{images/5-14.png}
+    \caption{概念结构设计}
 \end{figure}
 
 \textbf{B. 逻辑结构设计}
@@ -1247,6 +1284,9 @@ Artist/Album/Genre：音乐相关实体模型
 \label{tab:my-table}\\
 \toprule
 \textbf{关系表名}   & \textbf{字段}        & \textbf{类型}  & \textbf{约束}                     \\* \midrule
+\endfirsthead
+\multicolumn{4}{c}
+{{\bfseries 表 \thetable\ 续前页}} \\
 \endhead
 %
 \bottomrule
@@ -1302,7 +1342,7 @@ playlist\_songs & playlist\_id       & INT          & PK, FK (playlists.playlist
 % \usepackage{longtable}
 % Note：It may be necessary to compile the document several times to get a multi-page table to line up properly
 \begin{longtable}{@{}llllll@{}}
-\caption{用户信息表表}
+\caption{用户信息}
 \label{tab:my-table}\\
 \toprule
 \textbf{序号} & \textbf{列名} & \textbf{数据类型} & \textbf{长度} & \textbf{说明}                                                                      & \textbf{允许为空} \\* \midrule
@@ -1331,6 +1371,9 @@ playlist\_songs & playlist\_id       & INT          & PK, FK (playlists.playlist
 \label{tab:my-table}\\
 \toprule
 \textbf{序号} & \textbf{列名} & \textbf{数据类型} & \textbf{长度} & \textbf{说明}                                                            & \textbf{允许为空} \\* \midrule
+\endfirsthead
+\multicolumn{6}{c}
+{{\bfseries 表 \thetable\ 续前页}} \\
 \endhead
 %
 \bottomrule
@@ -1421,6 +1464,7 @@ playlist\_songs & playlist\_id       & INT          & PK, FK (playlists.playlist
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/5-13.png}
+    \caption{软件部署图}
 \end{figure}
 
 \subsubsection{系统出错处理设计}
@@ -1929,9 +1973,8 @@ AI 音乐生成功能审核是针对平台内 AI 生成音乐内容的合规性�
 
 \textbf{决议事项}：决定采用自动化测试工具以提高效率，同时结合手动测试确保质量。设立了专门的反馈机制，以便快速响应测试中发现的问题并及时修复。
 
-\subsection{团队成员自评}
-
 \newpage
+\subsection{团队成员自评}
 
 \subsubsection{孙海洋自评}
 
@@ -1941,14 +1984,7 @@ AI 音乐生成功能审核是针对平台内 AI 生成音乐内容的合规性�
 
 团队协作里，我主动承担技术分享重任，输出《MindSpore 模型部署最佳实践》等 3 篇文档，助力团队成员跨越技术认知鸿沟。与算法团队深度配合，优化模型输入输出格式，减少前后端联调成本 30\% ；协助测试团队编写自动化测试用例，覆盖 80\% 核心功能，为系统质量加上双重保险。当然，我也明晰自身不足，初期在音乐生成参数配置的前端交互设计上，因缺乏用户视角，导致界面不够直观，后续通过参与用户调研、优化展示方式，已逐步改善这一问题。未来，我将持续深耕 AI 与音乐技术融合领域，优化全链路性能监控，为系统功能创新输送更强劲的技术动力，在推动 MusicStorm 前行的路上，留下更坚实的足迹。
 
-\vfill
-\pagebreak
-% 插入空白页（无页眉页脚）
-\clearpage
-\thispagestyle{empty}
-\null
 \newpage
-
 \subsubsection{夏清伟自评}
 
 投身 MusicStorm 系统的算法研发工作，我始终以突破音乐生成与推荐的技术边界为使命，在 AI 与音乐交融的赛道上全力冲刺。多模态音乐生成算法优化是我的核心战场，基于 MindSpore 框架，我对文本 - 音乐、图像 - 音乐跨模态生成模型展开深度打磨。改进 Transformer 架构，引入音乐风格编码器，让生成音乐与用户输入的文本、图像在情感与风格上的匹配度飙升至 85\% ，还创新设计 “风格混合系数” 参数，支持用户自定义风格融合比例，为音乐创作赋予更多元的可能。
@@ -1957,14 +1993,7 @@ AI 音乐生成功能审核是针对平台内 AI 生成音乐内容的合规性�
 
 团队协作时，我与开发团队紧密配合，精准完成算法 API 接口设计与调试，让模型与后端服务无缝对接；针对测试团队反馈的 “风格生成不稳定” 问题，深入剖析数据分布，借数据增强技术攻克小众风格生成难题。我还积极参与开源社区交流，汲取 MusicLM 等前沿模型灵感，为系统创新引入源头活水。但我也深知不足，初期对音乐生成可解释性关注不够，让用户难以理解参数影响，后续开发 “参数 - 效果预览” 功能，实时展示参数变化，提升用户创作体验。未来，我将继续探索 AI 音乐前沿技术，迭代算法模型，为用户打造更具创造力的音乐创作工具，让 MusicStorm 的算法引擎持续轰鸣，驱动系统在音乐 AI 领域绽放更耀眼的光芒。
 
-\vfill
-\pagebreak
-% 插入空白页（无页眉页脚）
-\clearpage
-\thispagestyle{empty}
-\null
 \newpage
-
 \subsubsection{陈俊至自评}
 
 作为 MusicStorm 系统的前端开发者，我在界面搭建与交互优化的征程中，既有收获成果的喜悦，也有直面不足的反思。核心功能开发上，我运用 React 框架，完成音乐生成、社区模块的页面构建，遵循响应式设计，适配多端设备，让 80\% 核心页面首屏加载控制在 2 秒内，为用户打造流畅的初始体验。在交互逻辑雕琢上，实现音乐生成实时进度反馈、评论即时刷新等功能，让用户操作能获得及时、生动的响应，增添使用过程中的互动感。
@@ -1975,14 +2004,7 @@ AI 音乐生成功能审核是针对平台内 AI 生成音乐内容的合规性�
 
 回顾这段开发历程，我在界面还原与基础交互体验打造上达标，却在协同效率与复杂场景应对上留有遗憾，自评良好是对当下的客观审视。往后，我会聚焦技术深度拓展与团队协作升级，打磨更优质的前端方案，为 MusicStorm 系统的用户体验拼图，补上更精致的一块，让用户在音乐创作与社区互动中，感受更丝滑、更贴心的前端交互魅力。
 
-\vfill
-\pagebreak
-% 插入空白页（无页眉页脚）
-\clearpage
-\thispagestyle{empty}
-\null
 \newpage
-
 \subsubsection{胡浩东自评}
 
 在 MusicStorm 系统的测试工作中，我一路护航系统质量，也在实践里看清自身优缺。功能测试环节，我围绕音乐生成、社区交互等核心模块，设计 200 余条测试用例，覆盖功能、边界、异常等场景，像 “多模态输入参数校验”“评论敏感词过滤” 这类关键功能，都在我的测试雷达之下。发现并推动修复 25 个缺陷，为系统稳定性筑牢第一道防线，让用户在核心流程中少遇故障困扰。
@@ -1993,14 +2015,7 @@ AI 音乐生成功能审核是针对平台内 AI 生成音乐内容的合规性�
 
 但我也深知，对音乐生成算法的测试停留在功能层面，未深入评估生成音乐的质量匹配度，这是专业深度的缺失。未来，我会加强与算法团队协作，构建更科学的算法测试指标体系，让测试不仅守护功能运行，更能保障用户体验。在兼容性测试中，对小众设备覆盖不足的问题，也将通过扩大测试范围、引入云测平台来解决。我愿以更成熟的姿态，为 MusicStorm 系统的稳定运行，筑牢更坚实、更全面的质量防线，在测试岗位上，一步步补齐短板，提升价值。
 
-\vfill
-\pagebreak
-% 插入空白页（无页眉页脚）
-\clearpage
-\thispagestyle{empty}
-\null
 \newpage
-
 \subsubsection{于畔湘自评}
 
 作为 MusicStorm 系统的产品经理，我在产品规划与推进的旅程中，见证系统成长，也直面自身不足。产品定位与功能规划时，我锚定 “AI 辅助创作 + 音乐社区” 方向，调研 300 余位用户，梳理需求输出《需求规格说明书》，为系统搭建起功能框架，让音乐生成、鉴赏、社区交互等核心功能有章可循。设计音乐生成参数调节、社区推荐优化等功能，还推出 “一键生成” 简易模式，降低创作门槛，收获用户初步认可。
@@ -2011,14 +2026,7 @@ AI 音乐生成功能审核是针对平台内 AI 生成音乐内容的合规性�
 
 回顾这段历程，MusicStorm 在用户规模与活跃度上有增长，可我在需求精准度与数据驱动能力上还有提升空间，自评良好是对当下的客观评判。往后，我会以更贴近用户、更依赖数据的姿态，优化产品体验，让 MusicStorm 在音乐创作平台的赛道上，跑出更亮眼的成绩，成为用户心中离不开的音乐创作与交流港湾。
 
-\vfill
-\pagebreak
-% 插入空白页（无页眉页脚）
-\clearpage
-\thispagestyle{empty}
-\null
 \newpage
-
 \subsection{团队组长评分}
 
 \begin{longtable}{@{}ccccc@{}}
@@ -2033,7 +2041,7 @@ AI 音乐生成功能审核是针对平台内 AI 生成音乐内容的合规性�
 %
 \endlastfoot
 %
-1           & 202220042210 & 孙海洋         & 完成AI训练，后端开发，文档整合以及改写 & 100           \\
+1           & 20222004210 & 孙海洋         & 完成AI训练，后端开发，文档整合以及改写 & 100           \\
 2           & 20221401231  & 夏清伟         & 完成项目前端设计以及后端开发       & 100           \\
 3           & 20221401010  & 胡浩东         & 完成ppt制作，以及部分后端开发     & 100           \\
 4           & 20221401244  & 陈俊至         & 完成文档编写，以及前端部分设计      & 100           \\
