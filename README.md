@@ -8,6 +8,7 @@
 
 目录结构
 
+```
 .
 ├── back-end                            # 后端代码
 │   ├── mvnw                            # maven wrapper
@@ -40,6 +41,7 @@
 │   └── ThreeLayersDesign.drawio        # 三层架构设计文件
 ├── README.md                           # 项目说明
 └── StarshipProber.pptx                 # 项目演示
+```
 
 整个审核过程无人工，均使用 MindSpore 框架构建的模型
 
