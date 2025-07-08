@@ -1,0 +1,32 @@
+.
+├── back-end                            # 后端代码
+│   ├── mvnw                            # maven wrapper
+│   ├── mvnw.cmd                        # maven wrapper for windows
+│   ├── pom.xml                         # maven project file
+│   ├── src                             # source code
+│   └── target                          # target folder
+├── database                            # 数据库文件
+│   ├── MainSchema.mwb                  # 数据库文件
+│   ├── schema.jpg                      # 数据库设计图
+│   ├── schema.sql                      # 数据库建表语句
+│   ├── starship.sql                    # 建表语句
+│   └── weapon.sql                      # 建表语句
+├── DevelopmentDocument.md              # 开发文档
+├── front-end                           # 前端代码
+│   ├── index.html                      # 前端入口文件
+│   ├── LICENSE.md                      # 许可证
+│   ├── node_modules                    # 前端依赖包
+│   ├── package.json                    # 前端依赖配置文件
+│   ├── package-lock.json               # 前端依赖锁定文件
+│   ├── public                          # 静态资源
+│   ├── README.md                       # 项目说明
+│   ├── src                             # 前端源码
+│   ├── vercel.json                     # vercel 部署配置文件
+│   └── vite.config.js                  # vite 打包配置文件
+├── LICENSE                             # 许可证
+├── materials                           # 设计文件
+│   ├── FrontEnd.drawio                 # 前端设计文件
+│   ├── FrontEndPageLayers.drawio       # 前端页面层级设计文件
+│   └── ThreeLayersDesign.drawio        # 三层架构设计文件
+├── README.md                           # 项目说明
+└── StarshipProber.pptx                 # 项目演示
