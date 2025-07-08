@@ -29,7 +29,7 @@
     <div class="post-list">
       <div v-for="post in posts" :key="post.id" class="post-card">
         <div class="post-header">
-          <img src="https://www.bing.com/th/id/OIP.uwWLUS0SeweiTbLzvWqYYQAAAA?w=210&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" class="user-avatar">
+          <img src="/images/avatar.jpg?assest" class="user-avatar">
           <div class="user-info">
             <span class="username">{{ post.user_name }}</span>
             <span class="post-time">{{ post.time }}</span>
@@ -42,10 +42,10 @@
 
         <div class="referenced-music">
           <div class="music-item" @click="playTrack(post)">
-            <img :src="post.track_cover" class="music-cover">
+            <img :src="post.tracks_cover" class="music-cover">
             <div class="music-info">
-              <div class="music-name">{{ post.track_name }}</div>
-              <div class="music-artist">{{ post.track_artist }}</div>
+              <div class="music-name">{{ post.tracks_name }}</div>
+              <div class="music-artist">{{ post.tracks_artist }}</div>
             </div>
           </div>
         </div>
@@ -67,37 +67,37 @@ import { useMusicStore } from '@/stores/music';
 import axios from 'axios';
 
 interface Post {
-  id: string;
-  user_id: string;
+  id: number;
+  user_id: number;
   user_name: string;
   user_avatar: string;
   content: string;
   time: string;
-  track_id: string | number;
-  track_name: string;
-  track_artist: string;
-  track_cover: string;
-  track_url: string;
+  tracks_id: string | number;
+  tracks_name: string;
+  tracks_artist: string;
+  tracks_cover: string;
+  tracks_url: string | null;
   likes: string;
-  url: string;
+  url: string | null;
 }
 
 const posts = ref<Post[]>([]);
 const showCreatePost = ref(false);
 const newPost = ref({
   content: '',
-  track_id: '',
-  track_name: '',
-  track_artist: '',
-  track_cover: ''
+  tracks_id: '',
+  tracks_name: '',
+  tracks_artist: '',
+  tracks_cover: ''
 });
 
 const musicStore = useMusicStore();
 const currentTrack = ref<any>(null);
 const user = ref({
-  id: localStorage.getItem('userId') || '100',
-  name: localStorage.getItem('username') || '匿名用户',
-  avatar: localStorage.getItem('avatar') || 'https://www.bing.com/th/id/OIP.uwWLUS0SeweiTbLzvWqYYQAAAA?w=210&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2'
+  id: 1,
+  name: "paddddddddd",
+  avatar: "/images/avatar.jpg?assest"
 });
 
 const fetchPosts = async () => {
@@ -120,13 +120,8 @@ const fetchPosts = async () => {
       "sec-ch-ua-mobile": "?0",
     };
 
-    const params = {
-      "username": "test"
-    };
-
     const response = await axios.get("http://sunsealucky.cn:8080/post/findAllPosts", {
-      headers,
-      params
+      headers
     });
 
     // 将API返回的数据转换为Post接口格式
@@ -137,11 +132,11 @@ const fetchPosts = async () => {
       user_avatar: item.user_avatar,
       content: item.content,
       time: item.time,
-      track_id: item.track_id,
-      track_name: item.track_name,
-      track_artist: item.track_artist,
-      track_cover: item.track_cover,
-      track_url: item.track_url,
+      tracks_id: item.tracks_id,
+      tracks_name: item.tracks_name,
+      tracks_artist: item.tracks_artist,
+      tracks_cover: item.user_avatar,
+      // tracks_url: item.tracks_url,
       likes: item.likes
       // url: item.url
     }));
@@ -155,7 +150,6 @@ onMounted(() => {
 });
 
 const selectTrack = () => {
-  console.log(currentTrack);
   // 暂时使用当前播放的音乐作为示例
   if (musicStore.playSong) {
     currentTrack.value = {
@@ -164,19 +158,19 @@ const selectTrack = () => {
       artists: musicStore.playSong.artists,
       cover: musicStore.playSong.cover
     };
-    newPost.value.track_id = currentTrack.value.id;
-    newPost.value.track_name = currentTrack.value.name;
-    newPost.value.track_artist = currentTrack.value.artists.name;
-    newPost.value.track_cover = currentTrack.value.cover;
+    newPost.value.tracks_id = currentTrack.value.id;
+    newPost.value.tracks_name = currentTrack.value.name;
+    newPost.value.tracks_artist = currentTrack.value.artists.name;
+    newPost.value.tracks_cover = currentTrack.value.cover;
   }
 };
 
 const clearTrack = () => {
   currentTrack.value = null;
-  newPost.value.track_id = '';
-  newPost.value.track_name = '';
-  newPost.value.track_artist = '';
-  newPost.value.track_cover = '';
+  newPost.value.tracks_id = '';
+  newPost.value.tracks_name = '';
+  newPost.value.tracks_artist = '';
+  newPost.value.tracks_cover = '';
 };
 
 const submitPost = async () => {
@@ -187,6 +181,7 @@ const submitPost = async () => {
       "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoidGVzdCJ9LCJleHAiOjE3NTE5ODIyODF9.KjqCbUYoZIc3pBaIHYDGivD_XaREnyqBEeIzh9LZAJA",
       "Cache-Control": "no-cache",
       "Connection": "keep-alive",
+      "Content-Type": "application/json",
       "Origin": "http://localhost:5173",
       "Pragma": "no-cache",
       "Referer": "http://localhost:5173/",
@@ -196,36 +191,34 @@ const submitPost = async () => {
       "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
       "sec-ch-ua": "\"Google Chrome\";v=\"137\", \"Chromium\";v=\"137\", \"Not/A)Brand\";v=\"24\"",
       "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"macOS\""
     };
 
     const params = {
-      id: Date.now(),
-      user_id: user.value.id,
+      id: Date.now() % 100000,
+      user_id: 10,
       user_name: user.value.name,
-      user_avatar: user.value.avatar,
+      user_avatar: newPost.value.tracks_cover || undefined,
       content: newPost.value.content,
       time: new Date().toISOString(),
-      tracks_id: newPost.value.track_id || undefined,
-      tracks_name: newPost.value.track_name || undefined,
-      tracks_artist: newPost.value.track_artist || undefined,
+      tracks_id: newPost.value.tracks_id || undefined,
+      tracks_name: newPost.value.tracks_name || undefined,
+      tracks_artist: newPost.value.tracks_artist || undefined,
       likes: "0"
     };
 
-    // 构建查询字符串，自动过滤undefined值
-    const query = Object.entries(params)
-      .filter(([_, v]) => v !== undefined)
-      .map(([k, v]) => `${k}=${encodeURIComponent(v as string | number | boolean)}`)
-      .join('&');
-
-    await axios.get(`http://sunsealucky.cn:8080/post/addPost?${query}`, { headers });
+    await axios.get("http://sunsealucky.cn:8080/post/addPost", {
+      headers,
+      params
+    });
     
     showCreatePost.value = false;
     newPost.value = {
       content: '',
-      track_id: '',
-      track_name: '',
-      track_artist: '',
-      track_cover: ''
+      tracks_id: '',
+      tracks_name: '',
+      tracks_artist: '',
+      tracks_cover: ''
     };
     currentTrack.value = null;
     
@@ -245,11 +238,11 @@ const playTrack = (post: Post) => {
   // 更新当前播放歌曲信息
   const musicStore = useMusicStore();
   musicStore.playSong = {
-    id: Number(post.track_id), // 转换为number类型
-    name: post.track_name,
-    artists: post.track_artist,
+    id: Number(post.tracks_id), // 转换为number类型
+    name: post.tracks_name,
+    artists: post.tracks_artist,
     album: '未知专辑',
-    cover: post.track_cover,
+    cover: post.tracks_cover,
     duration: 0,
     free: 0,
     mv: null,

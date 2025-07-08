@@ -58,6 +58,11 @@ const routes: Array<RouteRecordRaw> = [
     redirect: "/discover/playlists",
     children: [
       {
+        path: "generatores",
+        name: "discover-generatores",
+        component: () => import("@/views/Discover/generatores.vue"),
+      },
+      {
         path: "playlists",
         name: "discover-playlists",
         component: () => import("@/views/Discover/playlists.vue"),

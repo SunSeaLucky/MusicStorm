@@ -13,7 +13,7 @@ autoUpdater.setFeedURL({
 });
 
 // 禁用自动下载
-autoUpdater.autoDownload = false;
+autoUpdater.autoDownload = true;
 
 // 是否初始化
 let isInit: boolean = false;

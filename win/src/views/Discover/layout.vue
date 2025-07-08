@@ -10,6 +10,7 @@
       type="segment"
       @update:value="(name: string) => router.push({ name })"
     >
+      <n-tab name="discover-generatores"> 音乐生成 </n-tab>
       <n-tab name="discover-playlists"> 歌单广场 </n-tab>
       <n-tab name="discover-toplists"> 排行榜 </n-tab>
       <n-tab name="discover-artists"> 歌手 </n-tab>

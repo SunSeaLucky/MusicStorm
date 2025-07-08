@@ -21,17 +21,43 @@ headers = {
 
 url = "http://sunsealucky.cn:8080/post/addPost"
 
+# params = {
+#     "id": 100001,
+#     "user_id": 123123, 
+#     "user_name": "paddddddd",
+#     "user_avatar": "https://ts1.tc.mm.bing.net/th/id/OIP-C.-rCxIbM2E5yv46Ndkv1lkAHaHa?w=197&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.1&pid=3.1&rm=2",
+#     "content": "海的形状",
+#     "time": "2025-07-07 10:12:45",
+#     "tracks_id": "1",
+#     "tracks_name": "海の形",
+#     "tracks_artist": "昙轩",
+#     "likes": "1.3w"
+# }
+
+# params = {
+#     "id": 100004,
+#     "user_id": 123123, 
+#     "user_name": "paddddddd",
+#     "user_avatar": "https://p1.music.126.net/S7fYKauzveE9NDDVstBQvw==/109951171178959502.jpg",
+#     "content": "生活の伪造 いつも通り 通り过ぎて",
+#     "time": "2025-07-07 10:12:45",
+#     "tracks_id": "2",
+#     "tracks_name": "秒针を噛む",
+#     "tracks_artist": "ずっと真夜中でいいのに",
+#     "likes": "3451"
+# }
+
 params = {
-    "id": "11",
-    "user_id": "10", 
-    "user_name": "张三",
-    "user_avatar": "http://www.example.com/avatar.jpg",
-    "content": "今天天气不错，想听歌。",
-    "time": "2022-01-11 10:00:00",
-    "tracks_id": "1",
-    "tracks_name": "海",
-    "tracks_artist": "周杰伦",
-    "likes": "500"
+    "id": 100005,
+    "user_id": 123123, 
+    "user_name": "paddddddd",
+    "user_avatar": "https://p1.music.126.net/DVi9B70oYVFtDxVqZf_56g==/109951171264259694.jpg?param=130y130",
+    "content": "姥姥",
+    "time": "2025-07-07 10:12:45",
+    "tracks_id": "2",
+    "tracks_name": "莫愁乡",
+    "tracks_artist": "亞細亞曠世奇才",
+    "likes": "3451"
 }
 
 response = requests.get(url, headers=headers, params=params)

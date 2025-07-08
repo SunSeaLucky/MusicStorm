@@ -14,6 +14,9 @@ dist-ssr
 coverage
 *.local
 out
+demo.json
+demo.py
+test.py
 # .env
 # auto-imports.d.ts
 # components.d.ts

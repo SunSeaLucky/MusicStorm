@@ -2,7 +2,6 @@
 appId: com.imsyy.MusicStorm
 # 应用程序的产品名称
 productName: MusicStorm
-copyright: Copyright © imsyy 2023
 # 构建资源所在的目录
 directories:
   buildResources: public
@@ -108,8 +107,8 @@ npmRebuild: false
 # 自动更新的配置
 publish:
   # 更新提供商
-  provider: github
+  # provider: github
   # 自动更新检查的 URL
   # url: https://example.com/auto-updates
-  owner: "imsyy"
-  repo: "MusicStorm"
+  # owner: "imsyy"
+  # repo: "MusicStorm"
