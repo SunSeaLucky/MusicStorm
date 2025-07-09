@@ -77,8 +77,8 @@ public class WarshipServiceImpl implements WarshipService {
     }
 
     @Override
-    public void updateVerified(String name, Boolean verified) {
-        warshipMapper.updateVerified(verified, Integer.toString(findWarshipByName(name).getId()));
+    public void updateVerified(String id, Boolean verified) {
+        warshipMapper.updateVerified(verified, id);
     }
 
 
